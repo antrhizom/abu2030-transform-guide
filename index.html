@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABU 2030 Transform Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════
+     HEADER
+═══════════════════════════════════════════════════ -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-brand">
+      <span class="header-icon">&#9670;</span>
+      <div>
+        <h1>ABU 2030 Transform Guide</h1>
+        <p class="header-sub">Digitale Transformation im allgemeinbildenden Unterricht</p>
+      </div>
+    </div>
+    <div class="header-school" id="header-school-badge" style="display:none;">
+      <span class="school-badge" id="school-badge-name"></span>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════════════
+     TAB NAVIGATION
+═══════════════════════════════════════════════════ -->
+<nav class="tab-nav" id="tab-nav">
+  <div class="tab-nav-inner">
+    <button class="tab-btn active" data-tab="schule">
+      <span class="tab-num">1</span> Schule
+    </button>
+    <button class="tab-btn locked" data-tab="problematik" disabled>
+      <span class="tab-num">2</span> Problematik
+    </button>
+    <button class="tab-btn locked" data-tab="pfeiler" disabled>
+      <span class="tab-num">3</span> Pfeiler
+    </button>
+    <button class="tab-btn locked" data-tab="tools" disabled>
+      <span class="tab-num">4</span> Tools
+    </button>
+    <button class="tab-btn locked" data-tab="edtech" disabled>
+      <span class="tab-num">5</span> EdTech-Zuordnung
+    </button>
+    <button class="tab-btn locked" data-tab="einschaetzung" disabled>
+      <span class="tab-num">6</span> Schuleinsch&auml;tzung
+    </button>
+    <button class="tab-btn locked" data-tab="auswertung" disabled>
+      <span class="tab-num">7</span> Auswertung
+    </button>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════════
+     TAB PANELS
+═══════════════════════════════════════════════════ -->
+<main class="tab-content">
+
+  <!-- ─── TAB 1: SCHULE WÄHLEN ─── -->
+  <section class="tab-panel active" id="panel-schule">
+    <div class="panel-container">
+      <div class="panel-hero">
+        <h2>Willkommen zum Transform Guide</h2>
+        <p>Der neue Rahmenlehrplan ABU 2030 verlangt eine grundlegende Neuausrichtung des Unterrichts. Dieser Guide begleitet Sie durch die Transformation &ndash; interaktiv, kollaborativ und datengest&uuml;tzt.</p>
+      </div>
+
+      <div class="card school-select-card">
+        <h3>W&auml;hlen Sie Ihre Schule</h3>
+        <p class="card-hint">Ihre Auswahl bestimmt, wie die Ergebnisse ausgewertet und verglichen werden.</p>
+        <div class="school-grid" id="school-grid">
+          <button class="school-btn" data-school="bbw">
+            <span class="school-logo">BBW</span>
+            <span class="school-name">Berufsbildungsschule Winterthur</span>
+          </button>
+          <button class="school-btn" data-school="bzz">
+            <span class="school-logo">BZZ</span>
+            <span class="school-name">Bildungszentrum Z&uuml;richsee</span>
+          </button>
+          <button class="school-btn" data-school="other">
+            <span class="school-logo">+</span>
+            <span class="school-name">Andere Schule</span>
+          </button>
+        </div>
+        <div id="other-school-input" class="other-school-input" style="display:none;">
+          <input type="text" id="other-school-name" placeholder="Name Ihrer Schule eingeben...">
+          <button class="btn-primary" id="confirm-other-school">Best&auml;tigen</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TAB 2: PROBLEMATIK ─── -->
+  <section class="tab-panel" id="panel-problematik">
+    <div class="panel-container">
+      <div class="panel-hero">
+        <h2>Die Herausforderung: Handlungsorientiert &amp; Zirkul&auml;r</h2>
+        <p>Der neue RLP ABU verlangt, dass Unterricht handlungsorientiert gestaltet wird, Herausforderungen stellt und zirkul&auml;r auf mehrere Kompetenzkategorien Bezug nimmt.</p>
+      </div>
+
+      <!-- Zirkularitäts-Visualisierung -->
+      <div class="card">
+        <h3>Zirkul&auml;res Kompetenzmodell</h3>
+        <p>Jedes Thema adressiert mehrere Schl&uuml;sselkompetenzen, die spiralf&ouml;rmig vertieft werden (R1 &rarr; R2). Das bedeutet: Kompetenzen tauchen in mehreren Themen auf verschiedenen Niveaus auf.</p>
+        <div class="circularity-visual">
+          <div class="circ-ring">
+            <div class="circ-theme" data-theme="1" style="--angle: 0deg;">
+              <span class="circ-label">T1</span>
+              <span class="circ-name">Berufseinstieg</span>
+            </div>
+            <div class="circ-theme" data-theme="2" style="--angle: 45deg;">
+              <span class="circ-label">T2</span>
+              <span class="circ-name">Konsum</span>
+            </div>
+            <div class="circ-theme" data-theme="3" style="--angle: 90deg;">
+              <span class="circ-label">T3</span>
+              <span class="circ-name">Sicherheit</span>
+            </div>
+            <div class="circ-theme" data-theme="4" style="--angle: 135deg;">
+              <span class="circ-label">T4</span>
+              <span class="circ-name">Medien &amp; Digital</span>
+            </div>
+            <div class="circ-theme" data-theme="5" style="--angle: 180deg;">
+              <span class="circ-label">T5</span>
+              <span class="circ-name">Politik</span>
+            </div>
+            <div class="circ-theme" data-theme="6" style="--angle: 225deg;">
+              <span class="circ-label">T6</span>
+              <span class="circ-name">Recht &amp; Ethik</span>
+            </div>
+            <div class="circ-theme" data-theme="7" style="--angle: 270deg;">
+              <span class="circ-label">T7</span>
+              <span class="circ-name">Arbeit</span>
+            </div>
+            <div class="circ-theme" data-theme="8" style="--angle: 315deg;">
+              <span class="circ-label">T8</span>
+              <span class="circ-name">Kultur</span>
+            </div>
+            <div class="circ-center">
+              <span>Handlungs-<br>kompetenz</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Drei Säulen der Herausforderung -->
+      <div class="card-grid-3">
+        <div class="card card-challenge">
+          <div class="card-icon">&#9888;</div>
+          <h4>Handlungsorientierung</h4>
+          <p>Nicht mehr Wissen vermitteln, sondern Handlungsf&auml;higkeit aufbauen. Lernende m&uuml;ssen in authentischen Situationen agieren k&ouml;nnen.</p>
+        </div>
+        <div class="card card-challenge">
+          <div class="card-icon">&#8635;</div>
+          <h4>Zirkularit&auml;t</h4>
+          <p>Kompetenzen werden &uuml;ber mehrere Themen hinweg spiralf&ouml;rmig vertieft. Das erfordert eine themen&uuml;bergreifende Planung.</p>
+        </div>
+        <div class="card card-challenge">
+          <div class="card-icon">&#9733;</div>
+          <h4>Mehrere Kompetenzkategorien</h4>
+          <p>Jedes Thema verkn&uuml;pft Gesellschaft, Sprache und Schl&uuml;sselkompetenzen. Digitalisierung ist dabei immer mitgedacht.</p>
+        </div>
+      </div>
+
+      <!-- Survey: Einschätzung -->
+      <div class="card survey-card">
+        <h3>Ihre Einsch&auml;tzung</h3>
+        <div class="survey-question" data-key="problematik_handlung">
+          <p class="sq-label">Wie gut gelingt Ihnen handlungsorientierter Unterricht bereits?</p>
+          <div class="rating-scale">
+            <button class="rate-btn" data-value="1">1<span>gar nicht</span></button>
+            <button class="rate-btn" data-value="2">2</button>
+            <button class="rate-btn" data-value="3">3</button>
+            <button class="rate-btn" data-value="4">4</button>
+            <button class="rate-btn" data-value="5">5<span>sehr gut</span></button>
+          </div>
+        </div>
+        <div class="survey-question" data-key="problematik_zirkular">
+          <p class="sq-label">Wie gut planen Sie bereits zirkul&auml;r &uuml;ber Themen hinweg?</p>
+          <div class="rating-scale">
+            <button class="rate-btn" data-value="1">1<span>gar nicht</span></button>
+            <button class="rate-btn" data-value="2">2</button>
+            <button class="rate-btn" data-value="3">3</button>
+            <button class="rate-btn" data-value="4">4</button>
+            <button class="rate-btn" data-value="5">5<span>sehr gut</span></button>
+          </div>
+        </div>
+        <div class="survey-question" data-key="problematik_digital">
+          <p class="sq-label">Inwiefern denken Sie Digitalisierung in jedem Thema mit?</p>
+          <div class="rating-scale">
+            <button class="rate-btn" data-value="1">1<span>gar nicht</span></button>
+            <button class="rate-btn" data-value="2">2</button>
+            <button class="rate-btn" data-value="3">3</button>
+            <button class="rate-btn" data-value="4">4</button>
+            <button class="rate-btn" data-value="5">5<span>immer</span></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-nav">
+        <button class="btn-secondary" data-goto="schule">&larr; Zur&uuml;ck</button>
+        <button class="btn-primary" data-goto="pfeiler">Weiter: Pfeiler &rarr;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TAB 3: PFEILER DER TRANSFORMATION ─── -->
+  <section class="tab-panel" id="panel-pfeiler">
+    <div class="panel-container">
+      <div class="panel-hero">
+        <h2>Pfeiler der Transformation</h2>
+        <p>Die digitale Transformation im ABU gelingt nicht allein &ndash; sie basiert auf tragenden Pfeilern, die gemeinsam das Fundament bilden.</p>
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar-card" data-pillar="kollaboration">
+          <div class="pillar-icon">&#129309;</div>
+          <h4>Kollaboration unter Lehrpersonen</h4>
+          <p>Nicht kopieren, sondern gemeinsam Inhalte erarbeiten und zur Verf&uuml;gung stellen. Wissen und Material wird geteilt, nicht gehortet.</p>
+          <div class="pillar-examples">
+            <span class="pillar-tag">Gemeinsame Materialien</span>
+            <span class="pillar-tag">Co-Creation</span>
+            <span class="pillar-tag">Peer-Feedback</span>
+          </div>
+        </div>
+
+        <div class="pillar-card" data-pillar="asynchron">
+          <div class="pillar-icon">&#9203;</div>
+          <h4>Asynchroner Unterricht</h4>
+          <p>Unterricht kann zeitlich flexibel gestaltet werden. Lernende arbeiten in ihrem Tempo, Pr&auml;senzzeit wird f&uuml;r Austausch und Vertiefung genutzt.</p>
+          <div class="pillar-examples">
+            <span class="pillar-tag">Flipped Classroom</span>
+            <span class="pillar-tag">Selbstlernphasen</span>
+            <span class="pillar-tag">Flexible Zeitfenster</span>
+          </div>
+        </div>
+
+        <div class="pillar-card" data-pillar="digital_immer">
+          <div class="pillar-icon">&#128187;</div>
+          <h4>Digitalisierung immer mitdenken</h4>
+          <p>Digitale Tools und Kompetenzen sind kein Add-on, sondern integraler Bestandteil jedes Themas und jeder Unterrichtseinheit.</p>
+          <div class="pillar-examples">
+            <span class="pillar-tag">Digital Literacy</span>
+            <span class="pillar-tag">KI-Kompetenz</span>
+            <span class="pillar-tag">Medienkritik</span>
+          </div>
+        </div>
+
+        <div class="pillar-card" data-pillar="lernraeume">
+          <div class="pillar-icon">&#127968;</div>
+          <h4>Vielf&auml;ltige Lernr&auml;ume</h4>
+          <p>Synchrone und asynchrone R&auml;ume, die gemeinsam genutzt werden. Von der physischen Klasse bis zum digitalen Kollaborationsraum.</p>
+          <div class="pillar-examples">
+            <span class="pillar-tag">Hybrid-Modelle</span>
+            <span class="pillar-tag">Digitale Werkst&auml;tten</span>
+            <span class="pillar-tag">Lernlandschaften</span>
+          </div>
+        </div>
+
+        <div class="pillar-card" data-pillar="teilen">
+          <div class="pillar-icon">&#128640;</div>
+          <h4>Gemeinsam zur Verf&uuml;gung stellen</h4>
+          <p>Organisationstools werden miteinander gebaut, genutzt und inhaltlich geteilt. Unterrichtsgestaltung wird zum Gemeinschaftsprojekt.</p>
+          <div class="pillar-examples">
+            <span class="pillar-tag">OER-Prinzip</span>
+            <span class="pillar-tag">Template-Sharing</span>
+            <span class="pillar-tag">Best Practices</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Survey: Pfeiler -->
+      <div class="card survey-card">
+        <h3>Wie stehen Sie zu diesen Pfeilern?</h3>
+
+        <div class="survey-question" data-key="pfeiler_kollaboration">
+          <p class="sq-label">Kollaboration unter Lehrpersonen ist an meiner Schule bereits gelebte Praxis.</p>
+          <div class="agree-scale">
+            <button class="agree-btn" data-value="stimme_zu">Stimme zu</button>
+            <button class="agree-btn" data-value="eher_ja">Eher ja</button>
+            <button class="agree-btn" data-value="eher_nein">Eher nein</button>
+            <button class="agree-btn" data-value="stimme_nicht_zu">Stimme nicht zu</button>
+          </div>
+        </div>
+
+        <div class="survey-question" data-key="pfeiler_asynchron">
+          <p class="sq-label">Asynchroner Unterricht ist f&uuml;r ABU realistisch umsetzbar.</p>
+          <div class="agree-scale">
+            <button class="agree-btn" data-value="stimme_zu">Stimme zu</button>
+            <button class="agree-btn" data-value="eher_ja">Eher ja</button>
+            <button class="agree-btn" data-value="eher_nein">Eher nein</button>
+            <button class="agree-btn" data-value="stimme_nicht_zu">Stimme nicht zu</button>
+          </div>
+        </div>
+
+        <div class="survey-question" data-key="pfeiler_teilen">
+          <p class="sq-label">Ich bin bereit, meine Unterrichtsmaterialien offen zu teilen.</p>
+          <div class="agree-scale">
+            <button class="agree-btn" data-value="stimme_zu">Stimme zu</button>
+            <button class="agree-btn" data-value="eher_ja">Eher ja</button>
+            <button class="agree-btn" data-value="eher_nein">Eher nein</button>
+            <button class="agree-btn" data-value="stimme_nicht_zu">Stimme nicht zu</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-nav">
+        <button class="btn-secondary" data-goto="problematik">&larr; Zur&uuml;ck</button>
+        <button class="btn-primary" data-goto="tools">Weiter: Tools &rarr;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TAB 4: TOOLS IM EINSATZ ─── -->
+  <section class="tab-panel" id="panel-tools">
+    <div class="panel-container">
+      <div class="panel-hero">
+        <h2>Tools im Einsatz</h2>
+        <p>Konkrete Werkzeuge, die den Transformationsprozess unterst&uuml;tzen. Nicht als Selbstzweck, sondern als Mittel zur kollaborativen Unterrichtsgestaltung.</p>
+      </div>
+
+      <div class="tools-showcase">
+        <div class="tool-card" data-tool="moodle">
+          <div class="tool-header">
+            <div class="tool-icon tool-icon-moodle">M</div>
+            <div>
+              <h4>Moodle</h4>
+              <span class="tool-type">Kollaboratives Organisationstool</span>
+            </div>
+          </div>
+          <p>Moodle dient als zentrale Plattform, auf der Lehrpersonen gemeinsam Kurse aufbauen, Materialien teilen und Lernpfade gestalten. Nicht als Ablage, sondern als lebendiger Organisationsraum.</p>
+          <div class="tool-uses">
+            <div class="tool-use">
+              <span class="tool-use-icon">&#128218;</span>
+              <span>Gemeinsame Kursvorlagen pro Thema</span>
+            </div>
+            <div class="tool-use">
+              <span class="tool-use-icon">&#128101;</span>
+              <span>Kollegiale Materialsammlungen</span>
+            </div>
+            <div class="tool-use">
+              <span class="tool-use-icon">&#128336;</span>
+              <span>Asynchrone Lernpfade f&uuml;r Lernende</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tool-card" data-tool="toteach">
+          <div class="tool-header">
+            <div class="tool-icon tool-icon-toteach">T</div>
+            <div>
+              <h4>to-teach</h4>
+              <span class="tool-type">Individueller &Uuml;bungsgenerator</span>
+            </div>
+          </div>
+          <p>to-teach generiert individualisierte &Uuml;bungen auf Basis von KI. Jede Lehrperson kann &Uuml;bungen passend zu ihrem Unterricht erstellen &ndash; differenziert nach Niveau und Kontext.</p>
+          <div class="tool-uses">
+            <div class="tool-use">
+              <span class="tool-use-icon">&#129302;</span>
+              <span>KI-gest&uuml;tzte &Uuml;bungsgenerierung</span>
+            </div>
+            <div class="tool-use">
+              <span class="tool-use-icon">&#127919;</span>
+              <span>Differenzierung nach Lernstand</span>
+            </div>
+            <div class="tool-use">
+              <span class="tool-use-icon">&#128260;</span>
+              <span>Wiederverwendbare &Uuml;bungssets</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tool-card" data-tool="teams">
+          <div class="tool-header">
+            <div class="tool-icon tool-icon-teams">&#9638;</div>
+            <div>
+              <h4>Teams-Aufgabenbausteine</h4>
+              <span class="tool-type">Teilbare Unterrichtsbausteine</span>
+            </div>
+          </div>
+          <p>Aufgabenbausteine in Microsoft Teams, die miteinander geteilt, aber individuell genutzt werden k&ouml;nnen. Jede Lehrperson passt die Bausteine an ihre Klasse an.</p>
+          <div class="tool-uses">
+            <div class="tool-use">
+              <span class="tool-use-icon">&#128221;</span>
+              <span>Aufgabenvorlagen zum Anpassen</span>
+            </div>
+            <div class="tool-use">
+              <span class="tool-use-icon">&#128257;</span>
+              <span>Modulares Baukastenprinzip</span>
+            </div>
+            <div class="tool-use">
+              <span class="tool-use-icon">&#128100;</span>
+              <span>Individuelle Nutzung, gemeinsame Basis</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Survey: Tool-Nutzung -->
+      <div class="card survey-card">
+        <h3>Welche Tools nutzen Sie bereits?</h3>
+        <div class="survey-question" data-key="tools_moodle">
+          <p class="sq-label">Moodle nutze ich aktiv f&uuml;r die Unterrichtsorganisation.</p>
+          <div class="agree-scale">
+            <button class="agree-btn" data-value="ja_aktiv">Ja, aktiv</button>
+            <button class="agree-btn" data-value="gelegentlich">Gelegentlich</button>
+            <button class="agree-btn" data-value="selten">Selten</button>
+            <button class="agree-btn" data-value="nein">Nein</button>
+          </div>
+        </div>
+        <div class="survey-question" data-key="tools_ki">
+          <p class="sq-label">Ich setze KI-Tools (z.B. to-teach) f&uuml;r die Unterrichtsvorbereitung ein.</p>
+          <div class="agree-scale">
+            <button class="agree-btn" data-value="ja_aktiv">Ja, aktiv</button>
+            <button class="agree-btn" data-value="gelegentlich">Gelegentlich</button>
+            <button class="agree-btn" data-value="selten">Selten</button>
+            <button class="agree-btn" data-value="nein">Nein</button>
+          </div>
+        </div>
+        <div class="survey-question" data-key="tools_teams">
+          <p class="sq-label">Teams-Aufgabenbausteine teile ich mit Kolleg:innen.</p>
+          <div class="agree-scale">
+            <button class="agree-btn" data-value="ja_aktiv">Ja, aktiv</button>
+            <button class="agree-btn" data-value="gelegentlich">Gelegentlich</button>
+            <button class="agree-btn" data-value="selten">Selten</button>
+            <button class="agree-btn" data-value="nein">Nein</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-nav">
+        <button class="btn-secondary" data-goto="pfeiler">&larr; Zur&uuml;ck</button>
+        <button class="btn-primary" data-goto="edtech">Weiter: EdTech-Zuordnung &rarr;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TAB 5: EDTECH-ZUORDNUNG ─── -->
+  <section class="tab-panel" id="panel-edtech">
+    <div class="panel-container">
+      <div class="panel-hero">
+        <h2>EdTech-Tools im Transformprozess</h2>
+        <p>Ordnen Sie die EdTech-Tools den Bereichen des Transformprozesses zu. Ziel: vielf&auml;ltige Lernr&auml;ume schaffen, die asynchron oder synchron gemeinsam genutzt werden.</p>
+      </div>
+
+      <!-- Zuordnungs-Matrix -->
+      <div class="edtech-matrix">
+        <div class="matrix-category">
+          <div class="matrix-header matrix-header-org">
+            <span class="matrix-icon">&#128203;</span>
+            <h4>Organisationstools</h4>
+            <p>Tools, die man miteinander baut, braucht und einander zur Verf&uuml;gung stellt</p>
+          </div>
+          <div class="matrix-dropzone" data-category="organisation" id="zone-organisation">
+            <p class="dropzone-hint">Ziehen Sie Tools hierher oder klicken Sie zum Zuordnen</p>
+          </div>
+        </div>
+
+        <div class="matrix-category">
+          <div class="matrix-header matrix-header-raum">
+            <span class="matrix-icon">&#127760;</span>
+            <h4>Organisationsr&auml;ume</h4>
+            <p>Digitale R&auml;ume, in denen Zusammenarbeit stattfindet</p>
+          </div>
+          <div class="matrix-dropzone" data-category="raeume" id="zone-raeume">
+            <p class="dropzone-hint">Ziehen Sie Tools hierher oder klicken Sie zum Zuordnen</p>
+          </div>
+        </div>
+
+        <div class="matrix-category">
+          <div class="matrix-header matrix-header-ug">
+            <span class="matrix-icon">&#127891;</span>
+            <h4>Unterrichtsgestaltungs-Austausch</h4>
+            <p>Tools und Methoden f&uuml;r den Austausch von Unterrichtsideen</p>
+          </div>
+          <div class="matrix-dropzone" data-category="unterricht" id="zone-unterricht">
+            <p class="dropzone-hint">Ziehen Sie Tools hierher oder klicken Sie zum Zuordnen</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tool-Pool zum Zuordnen -->
+      <div class="card">
+        <h3>Verf&uuml;gbare Tools</h3>
+        <p class="card-hint">Klicken Sie auf ein Tool und dann auf die Kategorie, der Sie es zuordnen m&ouml;chten.</p>
+        <div class="tool-pool" id="tool-pool">
+          <button class="pool-tool" data-tool-id="moodle">Moodle</button>
+          <button class="pool-tool" data-tool-id="teams">MS Teams</button>
+          <button class="pool-tool" data-tool-id="toteach">to-teach</button>
+          <button class="pool-tool" data-tool-id="fobizz">Fobizz</button>
+          <button class="pool-tool" data-tool-id="onenote">OneNote</button>
+          <button class="pool-tool" data-tool-id="padlet">Padlet</button>
+          <button class="pool-tool" data-tool-id="canva">Canva</button>
+          <button class="pool-tool" data-tool-id="kahoot">Kahoot</button>
+          <button class="pool-tool" data-tool-id="chatgpt">ChatGPT</button>
+          <button class="pool-tool" data-tool-id="copilot">Copilot</button>
+          <button class="pool-tool" data-tool-id="forms">MS Forms</button>
+          <button class="pool-tool" data-tool-id="sharepoint">SharePoint</button>
+        </div>
+      </div>
+
+      <!-- Survey -->
+      <div class="card survey-card">
+        <h3>Ihr Feedback zur Tool-Landschaft</h3>
+        <div class="survey-question" data-key="edtech_vielfalt">
+          <p class="sq-label">Die Tool-Vielfalt an meiner Schule ist ausreichend f&uuml;r die Transformation.</p>
+          <div class="agree-scale">
+            <button class="agree-btn" data-value="stimme_zu">Stimme zu</button>
+            <button class="agree-btn" data-value="eher_ja">Eher ja</button>
+            <button class="agree-btn" data-value="eher_nein">Eher nein</button>
+            <button class="agree-btn" data-value="stimme_nicht_zu">Stimme nicht zu</button>
+          </div>
+        </div>
+        <div class="survey-question" data-key="edtech_schulung">
+          <p class="sq-label">Ich w&uuml;nsche mir mehr Schulungen zu digitalen Tools.</p>
+          <div class="agree-scale">
+            <button class="agree-btn" data-value="stimme_zu">Stimme zu</button>
+            <button class="agree-btn" data-value="eher_ja">Eher ja</button>
+            <button class="agree-btn" data-value="eher_nein">Eher nein</button>
+            <button class="agree-btn" data-value="stimme_nicht_zu">Stimme nicht zu</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-nav">
+        <button class="btn-secondary" data-goto="tools">&larr; Zur&uuml;ck</button>
+        <button class="btn-primary" data-goto="einschaetzung">Weiter: Schuleinsch&auml;tzung &rarr;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TAB 6: SCHULEINSCHÄTZUNG ─── -->
+  <section class="tab-panel" id="panel-einschaetzung">
+    <div class="panel-container">
+      <div class="panel-hero">
+        <h2>Schuleinsch&auml;tzung &ndash; Wo steht Ihre Schule?</h2>
+        <p>Geben Sie eine kurze Einsch&auml;tzung, wie weit Ihre Schule in den verschiedenen Bereichen der Transformation bereits ist. Die Ergebnisse werden pro Schule aggregiert.</p>
+      </div>
+
+      <div class="assessment-grid">
+        <div class="assessment-item" data-key="assess_digitalkultur">
+          <h4>Digitale Kultur</h4>
+          <p>Wie stark ist digitale Kultur im Schulalltag verankert?</p>
+          <div class="slider-wrap">
+            <input type="range" min="1" max="10" value="5" class="assess-slider" id="slider-digitalkultur">
+            <div class="slider-labels">
+              <span>Anf&auml;nge</span>
+              <span class="slider-value" id="val-digitalkultur">5</span>
+              <span>Vorbild</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="assessment-item" data-key="assess_kollaboration">
+          <h4>Kollaboration Lehrpersonen</h4>
+          <p>Wie gut arbeiten Lehrpersonen bei der Unterrichtsgestaltung zusammen?</p>
+          <div class="slider-wrap">
+            <input type="range" min="1" max="10" value="5" class="assess-slider" id="slider-kollaboration">
+            <div class="slider-labels">
+              <span>Einzelk&auml;mpfer</span>
+              <span class="slider-value" id="val-kollaboration">5</span>
+              <span>Teamwork</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="assessment-item" data-key="assess_toolnutzung">
+          <h4>Tool-Nutzung</h4>
+          <p>Wie breit und kompetent werden digitale Tools eingesetzt?</p>
+          <div class="slider-wrap">
+            <input type="range" min="1" max="10" value="5" class="assess-slider" id="slider-toolnutzung">
+            <div class="slider-labels">
+              <span>Minimal</span>
+              <span class="slider-value" id="val-toolnutzung">5</span>
+              <span>Umfassend</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="assessment-item" data-key="assess_asynchron">
+          <h4>Asynchrones Lernen</h4>
+          <p>Wie verbreitet sind asynchrone Unterrichtsformen?</p>
+          <div class="slider-wrap">
+            <input type="range" min="1" max="10" value="5" class="assess-slider" id="slider-asynchron">
+            <div class="slider-labels">
+              <span>Kaum</span>
+              <span class="slider-value" id="val-asynchron">5</span>
+              <span>Etabliert</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="assessment-item" data-key="assess_handlung">
+          <h4>Handlungsorientierung</h4>
+          <p>Wie handlungsorientiert ist der ABU-Unterricht gestaltet?</p>
+          <div class="slider-wrap">
+            <input type="range" min="1" max="10" value="5" class="assess-slider" id="slider-handlung">
+            <div class="slider-labels">
+              <span>Traditionell</span>
+              <span class="slider-value" id="val-handlung">5</span>
+              <span>Handlungsorientiert</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="assessment-item" data-key="assess_lernraeume">
+          <h4>Vielf&auml;ltige Lernr&auml;ume</h4>
+          <p>Wie vielf&auml;ltig sind die genutzten Lernr&auml;ume (digital &amp; physisch)?</p>
+          <div class="slider-wrap">
+            <input type="range" min="1" max="10" value="5" class="assess-slider" id="slider-lernraeume">
+            <div class="slider-labels">
+              <span>Klassenzimmer</span>
+              <span class="slider-value" id="val-lernraeume">5</span>
+              <span>Multi-Space</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Freitext -->
+      <div class="card survey-card">
+        <h3>Was braucht Ihre Schule am dringendsten?</h3>
+        <div class="survey-question" data-key="assess_freitext">
+          <textarea class="survey-textarea" id="assess-freitext" placeholder="Beschreiben Sie kurz, was Ihre Schule f&uuml;r die Transformation am meisten ben&ouml;tigt..." rows="4"></textarea>
+        </div>
+      </div>
+
+      <div class="panel-nav">
+        <button class="btn-secondary" data-goto="edtech">&larr; Zur&uuml;ck</button>
+        <button class="btn-primary" id="btn-submit-all" data-goto="auswertung">Absenden &amp; Auswertung &rarr;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TAB 7: AUSWERTUNG ─── -->
+  <section class="tab-panel" id="panel-auswertung">
+    <div class="panel-container">
+      <div class="panel-hero">
+        <h2>Auswertung &ndash; <span id="eval-school-name">Ihre Schule</span></h2>
+        <p>Hier sehen Sie, wo Ihre Schule gef&uuml;hlsm&auml;ssig steht. Die Daten werden live aus allen Einsch&auml;tzungen Ihrer Schule aggregiert.</p>
+      </div>
+
+      <!-- Radar / Spider Chart Placeholder -->
+      <div class="card eval-card">
+        <h3>Transformations-Profil</h3>
+        <div class="radar-chart" id="radar-chart">
+          <canvas id="radar-canvas" width="400" height="400"></canvas>
+        </div>
+        <div class="radar-legend">
+          <span class="legend-item"><span class="legend-dot" style="background:#3b82f6;"></span> Ihre Schule</span>
+          <span class="legend-item"><span class="legend-dot" style="background:#94a3b8;"></span> Alle Schulen</span>
+        </div>
+      </div>
+
+      <!-- Einzelauswertungen -->
+      <div class="eval-details" id="eval-details">
+        <div class="eval-row">
+          <h4>Digitale Kultur</h4>
+          <div class="eval-bar-wrap">
+            <div class="eval-bar" id="bar-digitalkultur" style="width:50%;"></div>
+          </div>
+          <span class="eval-val" id="eval-digitalkultur">5.0</span>
+        </div>
+        <div class="eval-row">
+          <h4>Kollaboration</h4>
+          <div class="eval-bar-wrap">
+            <div class="eval-bar" id="bar-kollaboration" style="width:50%;"></div>
+          </div>
+          <span class="eval-val" id="eval-kollaboration">5.0</span>
+        </div>
+        <div class="eval-row">
+          <h4>Tool-Nutzung</h4>
+          <div class="eval-bar-wrap">
+            <div class="eval-bar" id="bar-toolnutzung" style="width:50%;"></div>
+          </div>
+          <span class="eval-val" id="eval-toolnutzung">5.0</span>
+        </div>
+        <div class="eval-row">
+          <h4>Asynchrones Lernen</h4>
+          <div class="eval-bar-wrap">
+            <div class="eval-bar" id="bar-asynchron" style="width:50%;"></div>
+          </div>
+          <span class="eval-val" id="eval-asynchron">5.0</span>
+        </div>
+        <div class="eval-row">
+          <h4>Handlungsorientierung</h4>
+          <div class="eval-bar-wrap">
+            <div class="eval-bar" id="bar-handlung" style="width:50%;"></div>
+          </div>
+          <span class="eval-val" id="eval-handlung">5.0</span>
+        </div>
+        <div class="eval-row">
+          <h4>Lernr&auml;ume</h4>
+          <div class="eval-bar-wrap">
+            <div class="eval-bar" id="bar-lernraeume" style="width:50%;"></div>
+          </div>
+          <span class="eval-val" id="eval-lernraeume">5.0</span>
+        </div>
+      </div>
+
+      <!-- Teilnehmer-Count -->
+      <div class="card eval-meta">
+        <div class="eval-stat">
+          <span class="eval-stat-num" id="eval-count">0</span>
+          <span class="eval-stat-label">Einsch&auml;tzungen Ihrer Schule</span>
+        </div>
+        <div class="eval-stat">
+          <span class="eval-stat-num" id="eval-total">0</span>
+          <span class="eval-stat-label">Einsch&auml;tzungen gesamt</span>
+        </div>
+      </div>
+
+      <!-- Survey-Übersicht -->
+      <div class="card">
+        <h3>Stimmungsbild: Problematik &amp; Pfeiler</h3>
+        <div id="survey-summary" class="survey-summary">
+          <p class="card-hint">Die Zusammenfassung wird nach dem Absenden geladen...</p>
+        </div>
+      </div>
+
+      <div class="panel-nav">
+        <button class="btn-secondary" data-goto="einschaetzung">&larr; Zur&uuml;ck</button>
+        <a href="admin.html" class="btn-admin">Admin-Dashboard &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══════════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <p>ABU 2030 Transform Guide &middot; Basierend auf dem neuen Rahmenlehrplan ABU</p>
+</footer>
+
+<!-- Firebase -->
+<script type="module" src="firebase-config.js"></script>
+<script type="module" src="app.js"></script>
+</body>
+</html>
