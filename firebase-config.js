@@ -7,14 +7,13 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebas
 import { getFirestore, collection, addDoc, getDocs, query, where, orderBy, serverTimestamp }
   from "https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js";
 
-// TODO: Replace with your Firebase project config
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT.firebasestorage.app",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyCLOIdMIiItqOS3wXcxZF01uwcfRmOEJ_c",
+  authDomain: "abu2030-transform-guide.firebaseapp.com",
+  projectId: "abu2030-transform-guide",
+  storageBucket: "abu2030-transform-guide.firebasestorage.app",
+  messagingSenderId: "48714185841",
+  appId: "1:48714185841:web:84f99bd8504761dce72fd0"
 };
 
 let app, db;
@@ -59,13 +58,20 @@ export async function saveResponse(data) {
 export async function getResponsesBySchool(schoolId) {
   if (firebaseReady && db) {
     try {
+      // Simple query without composite index — filter by school only
       const q = query(
         collection(db, "responses"),
-        where("school", "==", schoolId),
-        orderBy("timestamp", "desc")
+        where("school", "==", schoolId)
       );
       const snap = await getDocs(q);
-      return snap.docs.map(d => ({ id: d.id, ...d.data() }));
+      const docs = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+      // Sort client-side by timestamp desc
+      docs.sort((a, b) => {
+        const ta = a.timestamp?.seconds || 0;
+        const tb = b.timestamp?.seconds || 0;
+        return tb - ta;
+      });
+      return docs;
     } catch (e) {
       console.error("Firebase read failed, using localStorage:", e);
     }
@@ -77,9 +83,16 @@ export async function getResponsesBySchool(schoolId) {
 export async function getAllResponses() {
   if (firebaseReady && db) {
     try {
-      const q = query(collection(db, "responses"), orderBy("timestamp", "desc"));
-      const snap = await getDocs(q);
-      return snap.docs.map(d => ({ id: d.id, ...d.data() }));
+      // Simple query without orderBy to avoid index requirement
+      const snap = await getDocs(collection(db, "responses"));
+      const docs = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+      // Sort client-side by timestamp desc
+      docs.sort((a, b) => {
+        const ta = a.timestamp?.seconds || 0;
+        const tb = b.timestamp?.seconds || 0;
+        return tb - ta;
+      });
+      return docs;
     } catch (e) {
       console.error("Firebase read failed, using localStorage:", e);
     }

@@ -55,9 +55,7 @@ body {
 .site-header {
   background: linear-gradient(135deg, var(--blue-900), var(--blue-700));
   color: var(--white);
-  padding: 20px 0;
-  position: sticky;
-  top: 0;
+  padding: 14px 0;
   z-index: 100;
   box-shadow: var(--shadow-lg);
 }
@@ -109,7 +107,7 @@ body {
   background: var(--white);
   border-bottom: 1px solid var(--grey-200);
   position: sticky;
-  top: 68px;
+  top: 0;
   z-index: 90;
   box-shadow: var(--shadow-sm);
 }
