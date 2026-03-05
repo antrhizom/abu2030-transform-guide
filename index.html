@@ -535,100 +535,335 @@
     </div>
   </section>
 
-  <!-- ─── TAB 6: SCHULEINSCHÄTZUNG ─── -->
+  <!-- ─── TAB 6: SCHULEINSCHÄTZUNG (mit Sub-Tabs) ─── -->
   <section class="tab-panel" id="panel-einschaetzung">
     <div class="panel-container">
       <div class="panel-hero">
         <h2>Schuleinsch&auml;tzung &ndash; Wo steht Ihre Schule?</h2>
-        <p>Geben Sie eine kurze Einsch&auml;tzung, wie weit Ihre Schule in den verschiedenen Bereichen der Transformation bereits ist. Die Ergebnisse werden pro Schule aggregiert.</p>
+        <p>Drei Perspektiven auf die Transformation: die Lernraumstrategie als Zielbild, eine Checkliste zum Standort und Ihre pers&ouml;nliche Einsch&auml;tzung.</p>
       </div>
 
-      <div class="assessment-grid">
-        <div class="assessment-item" data-key="assess_digitalkultur">
-          <h4>Digitale Kultur</h4>
-          <p>Wie stark ist digitale Kultur im Schulalltag verankert?</p>
-          <div class="slider-wrap">
-            <input type="range" min="1" max="10" value="5" class="assess-slider" id="slider-digitalkultur">
-            <div class="slider-labels">
-              <span>Anf&auml;nge</span>
-              <span class="slider-value" id="val-digitalkultur">5</span>
-              <span>Vorbild</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="assessment-item" data-key="assess_kollaboration">
-          <h4>Kollaboration Lehrpersonen</h4>
-          <p>Wie gut arbeiten Lehrpersonen bei der Unterrichtsgestaltung zusammen?</p>
-          <div class="slider-wrap">
-            <input type="range" min="1" max="10" value="5" class="assess-slider" id="slider-kollaboration">
-            <div class="slider-labels">
-              <span>Einzelk&auml;mpfer</span>
-              <span class="slider-value" id="val-kollaboration">5</span>
-              <span>Teamwork</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="assessment-item" data-key="assess_toolnutzung">
-          <h4>Tool-Nutzung</h4>
-          <p>Wie breit und kompetent werden digitale Tools eingesetzt?</p>
-          <div class="slider-wrap">
-            <input type="range" min="1" max="10" value="5" class="assess-slider" id="slider-toolnutzung">
-            <div class="slider-labels">
-              <span>Minimal</span>
-              <span class="slider-value" id="val-toolnutzung">5</span>
-              <span>Umfassend</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="assessment-item" data-key="assess_asynchron">
-          <h4>Asynchrones Lernen</h4>
-          <p>Wie verbreitet sind asynchrone Unterrichtsformen?</p>
-          <div class="slider-wrap">
-            <input type="range" min="1" max="10" value="5" class="assess-slider" id="slider-asynchron">
-            <div class="slider-labels">
-              <span>Kaum</span>
-              <span class="slider-value" id="val-asynchron">5</span>
-              <span>Etabliert</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="assessment-item" data-key="assess_handlung">
-          <h4>Handlungsorientierung</h4>
-          <p>Wie handlungsorientiert ist der ABU-Unterricht gestaltet?</p>
-          <div class="slider-wrap">
-            <input type="range" min="1" max="10" value="5" class="assess-slider" id="slider-handlung">
-            <div class="slider-labels">
-              <span>Traditionell</span>
-              <span class="slider-value" id="val-handlung">5</span>
-              <span>Handlungsorientiert</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="assessment-item" data-key="assess_lernraeume">
-          <h4>Vielf&auml;ltige Lernr&auml;ume</h4>
-          <p>Wie vielf&auml;ltig sind die genutzten Lernr&auml;ume (digital &amp; physisch)?</p>
-          <div class="slider-wrap">
-            <input type="range" min="1" max="10" value="5" class="assess-slider" id="slider-lernraeume">
-            <div class="slider-labels">
-              <span>Klassenzimmer</span>
-              <span class="slider-value" id="val-lernraeume">5</span>
-              <span>Multi-Space</span>
-            </div>
-          </div>
-        </div>
+      <!-- SUB-TAB NAVIGATION -->
+      <div class="sub-tab-nav" id="sub-tab-nav">
+        <button class="sub-tab-btn active" data-subtab="lernraum">Lernraumstrategie</button>
+        <button class="sub-tab-btn" data-subtab="checkliste">Checkliste</button>
+        <button class="sub-tab-btn" data-subtab="slider">Einsch&auml;tzung</button>
       </div>
 
-      <!-- Freitext -->
-      <div class="card survey-card">
-        <h3>Was braucht Ihre Schule am dringendsten?</h3>
-        <div class="survey-question" data-key="assess_freitext">
-          <textarea class="survey-textarea" id="assess-freitext" placeholder="Beschreiben Sie kurz, was Ihre Schule f&uuml;r die Transformation am meisten ben&ouml;tigt..." rows="4"></textarea>
+      <!-- ═══ SUB-TAB A: LERNRAUMSTRATEGIE ═══ -->
+      <div class="sub-tab-panel active" id="subtab-lernraum">
+
+        <div class="card lernraum-hero-card">
+          <div class="lernraum-hero-icon">&#127970;</div>
+          <h3>M&ouml;gliche Lernraumarchitektur</h3>
+          <p class="lernraum-hero-lead">Gemeinsam Unterricht gestalten mit dem Probleml&ouml;sungspotential der digitalen Technik</p>
         </div>
+
+        <!-- Beispiele -->
+        <div class="card">
+          <h3>&#128221; Beispiele</h3>
+          <div class="lernraum-examples">
+            <div class="lr-example">
+              <div class="lr-example-icon" style="background:#5b5fc7;">&#9638;</div>
+              <div>
+                <h4>Mit Teams Aufgabenstellungen teilen</h4>
+                <p>Aufgabenbausteine werden von Lehrpersonen gemeinsam erarbeitet und &uuml;ber Teams geteilt. Jede LP passt sie individuell an ihre Klasse an.</p>
+              </div>
+            </div>
+            <div class="lr-example">
+              <div class="lr-example-icon" style="background:#f98012;">M</div>
+              <div>
+                <h4>Ein LMS f&uuml;r gemeinsame Lernr&auml;ume erstellen</h4>
+                <p>Moodle oder ein anderes LMS wird nicht als Ablage genutzt, sondern als lebendiger, gemeinsamer Lernraum, der thematisch und schul&uuml;bergreifend funktioniert.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ziele -->
+        <div class="card">
+          <h3>&#127919; Ziele</h3>
+          <div class="ziele-grid">
+            <div class="ziel-item">
+              <span class="ziel-icon">&#9201;</span>
+              <span>Weniger Aufwand</span>
+            </div>
+            <div class="ziel-item">
+              <span class="ziel-icon">&#128172;</span>
+              <span>Mehr Feedback</span>
+            </div>
+            <div class="ziel-item">
+              <span class="ziel-icon">&#128202;</span>
+              <span>Kollaborative datengetriebene Qualit&auml;tssicherung</span>
+            </div>
+            <div class="ziel-item">
+              <span class="ziel-icon">&#127947;</span>
+              <span>Mehr Trainingsm&ouml;glichkeiten</span>
+            </div>
+            <div class="ziel-item">
+              <span class="ziel-icon">&#128065;</span>
+              <span>Lernprozesse sichtbar machen</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bedingungen -->
+        <div class="card">
+          <h3>&#9888; Bedingungen</h3>
+          <div class="bedingungen-list">
+            <div class="bedingung-item">
+              <span class="bedingung-icon">&#10060;</span>
+              <div>
+                <strong>Kein Archiv</strong> von Unterrichtsmaterial entwickeln, sondern <strong>gemeinsame Lernr&auml;ume beleben</strong>.
+              </div>
+            </div>
+            <div class="bedingung-item">
+              <span class="bedingung-icon">&#127760;</span>
+              <div>
+                Im LMS: <strong>Schul&uuml;bergreifende thematische interaktive Lernr&auml;ume</strong> schaffen.
+              </div>
+            </div>
+            <div class="bedingung-item">
+              <span class="bedingung-icon">&#128204;</span>
+              <div>
+                F&uuml;r Lernende <strong>einen Ort der &Uuml;bersicht</strong> etablieren &ndash; ein zentraler Einstiegspunkt.
+              </div>
+            </div>
+            <div class="bedingung-item">
+              <span class="bedingung-icon">&#128101;</span>
+              <div>
+                Es bildet sich ein <strong>Autorenteam mit medienp&auml;dagogischen Kompetenzen</strong>, das die Lernr&auml;ume gemeinsam pflegt und weiterentwickelt.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- to-teach & Fobizz Einordnung -->
+        <div class="card card-highlight">
+          <h3>&#128161; Wo sind to-teach und Fobizz einzuordnen?</h3>
+          <div class="tool-einordnung">
+            <div class="tool-einordnung-visual">
+              <div class="einordnung-layer einordnung-gemeinsam">
+                <span class="einordnung-label">Gemeinsame Lernr&auml;ume</span>
+                <span class="einordnung-sub">LMS &middot; Teams &middot; Schul&uuml;bergreifend</span>
+                <div class="einordnung-arrow">&#8600;</div>
+                <div class="einordnung-layer einordnung-individuell">
+                  <span class="einordnung-label">Individuelle Lernr&auml;ume</span>
+                  <span class="einordnung-sub">to-teach &middot; Fobizz</span>
+                </div>
+              </div>
+            </div>
+            <p class="tool-einordnung-text">Mit <strong>to-teach</strong> und <strong>Fobizz</strong> k&ouml;nnen <em>individuelle Lernr&auml;ume</em> eingerichtet werden, auf welche aus den gemeinsamen Lernr&auml;umen abgezweigt werden kann. So entstehen differenzierte &Uuml;bungswege innerhalb der kollaborativen Struktur.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ═══ SUB-TAB B: CHECKLISTE ═══ -->
+      <div class="sub-tab-panel" id="subtab-checkliste">
+
+        <div class="card">
+          <h3>&#9745; Checkliste: Bereitschaft zur Transformation</h3>
+          <p class="card-hint">Haken Sie ab, was an Ihrer Schule bereits vorhanden oder in Planung ist. Ihre Angaben fliessen in die Schulauswertung ein.</p>
+
+          <div class="checklist-section">
+            <h4 class="checklist-heading">Lernraumstrategie</h4>
+            <label class="check-item" data-key="check_lms_gemeinsam">
+              <input type="checkbox" class="check-input">
+              <span class="check-box"></span>
+              <span class="check-text">Wir nutzen ein LMS (z.B. Moodle) f&uuml;r gemeinsame Lernr&auml;ume, nicht nur als Materialablage.</span>
+            </label>
+            <label class="check-item" data-key="check_teams_aufgaben">
+              <input type="checkbox" class="check-input">
+              <span class="check-box"></span>
+              <span class="check-text">Aufgabenstellungen werden &uuml;ber Teams oder &auml;hnliche Tools geteilt und gemeinsam weiterentwickelt.</span>
+            </label>
+            <label class="check-item" data-key="check_schuluebergreifend">
+              <input type="checkbox" class="check-input">
+              <span class="check-box"></span>
+              <span class="check-text">Es gibt schul&uuml;bergreifende thematische Lernr&auml;ume oder Projekte.</span>
+            </label>
+            <label class="check-item" data-key="check_uebersicht_lernende">
+              <input type="checkbox" class="check-input">
+              <span class="check-box"></span>
+              <span class="check-text">Lernende haben einen zentralen Ort der &Uuml;bersicht f&uuml;r ihre Lernmaterialien.</span>
+            </label>
+          </div>
+
+          <div class="checklist-section">
+            <h4 class="checklist-heading">Kollaboration &amp; Kultur</h4>
+            <label class="check-item" data-key="check_co_creation">
+              <input type="checkbox" class="check-input">
+              <span class="check-box"></span>
+              <span class="check-text">Lehrpersonen erarbeiten Unterrichtsinhalte gemeinsam (Co-Creation statt Kopieren).</span>
+            </label>
+            <label class="check-item" data-key="check_autorenteam">
+              <input type="checkbox" class="check-input">
+              <span class="check-box"></span>
+              <span class="check-text">Es gibt ein Autorenteam mit medienp&auml;dagogischen Kompetenzen.</span>
+            </label>
+            <label class="check-item" data-key="check_material_teilen">
+              <input type="checkbox" class="check-input">
+              <span class="check-box"></span>
+              <span class="check-text">Materialien und Best Practices werden offen geteilt (OER-Prinzip).</span>
+            </label>
+            <label class="check-item" data-key="check_feedback_kultur">
+              <input type="checkbox" class="check-input">
+              <span class="check-box"></span>
+              <span class="check-text">Es existiert eine Feedbackkultur unter Lehrpersonen zum Unterricht.</span>
+            </label>
+          </div>
+
+          <div class="checklist-section">
+            <h4 class="checklist-heading">Digitale Tools &amp; Kompetenzen</h4>
+            <label class="check-item" data-key="check_ki_tools">
+              <input type="checkbox" class="check-input">
+              <span class="check-box"></span>
+              <span class="check-text">KI-Tools (to-teach, Fobizz, ChatGPT) werden f&uuml;r individuelle Lernr&auml;ume eingesetzt.</span>
+            </label>
+            <label class="check-item" data-key="check_async_unterricht">
+              <input type="checkbox" class="check-input">
+              <span class="check-box"></span>
+              <span class="check-text">Asynchroner Unterricht ist etabliert und wird regelm&auml;ssig genutzt.</span>
+            </label>
+            <label class="check-item" data-key="check_datengetrieben">
+              <input type="checkbox" class="check-input">
+              <span class="check-box"></span>
+              <span class="check-text">Lernfortschritte werden digital erfasst und f&uuml;r die Qualit&auml;tssicherung genutzt.</span>
+            </label>
+            <label class="check-item" data-key="check_weiterbildung">
+              <input type="checkbox" class="check-input">
+              <span class="check-box"></span>
+              <span class="check-text">Regelm&auml;ssige Weiterbildung zu digitalen Tools und Methoden findet statt.</span>
+            </label>
+          </div>
+
+          <div class="checklist-section">
+            <h4 class="checklist-heading">Handlungsorientierung &amp; Lehrplan</h4>
+            <label class="check-item" data-key="check_handlungsorientiert">
+              <input type="checkbox" class="check-input">
+              <span class="check-box"></span>
+              <span class="check-text">Unterricht ist konsequent handlungsorientiert gestaltet (authentische Situationen).</span>
+            </label>
+            <label class="check-item" data-key="check_zirkular">
+              <input type="checkbox" class="check-input">
+              <span class="check-box"></span>
+              <span class="check-text">Kompetenzen werden zirkul&auml;r &uuml;ber mehrere Themen hinweg spiralf&ouml;rmig vertieft.</span>
+            </label>
+            <label class="check-item" data-key="check_digital_integriert">
+              <input type="checkbox" class="check-input">
+              <span class="check-box"></span>
+              <span class="check-text">Digitalisierung wird in jedem Thema mitgedacht, nicht als separates Kapitel.</span>
+            </label>
+            <label class="check-item" data-key="check_kompetenz_vernetzt">
+              <input type="checkbox" class="check-input">
+              <span class="check-box"></span>
+              <span class="check-text">Gesellschaft, Sprache und Schl&uuml;sselkompetenzen werden vernetzt unterrichtet.</span>
+            </label>
+          </div>
+
+          <!-- Checklist Progress -->
+          <div class="checklist-progress">
+            <div class="checklist-progress-bar">
+              <div class="checklist-progress-fill" id="checklist-fill" style="width:0%;"></div>
+            </div>
+            <span class="checklist-progress-text" id="checklist-progress-text">0 von 16 erf&uuml;llt</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ═══ SUB-TAB C: EINSCHÄTZUNG (Slider) ═══ -->
+      <div class="sub-tab-panel" id="subtab-slider">
+
+        <div class="assessment-grid">
+          <div class="assessment-item" data-key="assess_digitalkultur">
+            <h4>Digitale Kultur</h4>
+            <p>Wie stark ist digitale Kultur im Schulalltag verankert?</p>
+            <div class="slider-wrap">
+              <input type="range" min="1" max="10" value="5" class="assess-slider" id="slider-digitalkultur">
+              <div class="slider-labels">
+                <span>Anf&auml;nge</span>
+                <span class="slider-value" id="val-digitalkultur">5</span>
+                <span>Vorbild</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="assessment-item" data-key="assess_kollaboration">
+            <h4>Kollaboration Lehrpersonen</h4>
+            <p>Wie gut arbeiten Lehrpersonen bei der Unterrichtsgestaltung zusammen?</p>
+            <div class="slider-wrap">
+              <input type="range" min="1" max="10" value="5" class="assess-slider" id="slider-kollaboration">
+              <div class="slider-labels">
+                <span>Einzelk&auml;mpfer</span>
+                <span class="slider-value" id="val-kollaboration">5</span>
+                <span>Teamwork</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="assessment-item" data-key="assess_toolnutzung">
+            <h4>Tool-Nutzung</h4>
+            <p>Wie breit und kompetent werden digitale Tools eingesetzt?</p>
+            <div class="slider-wrap">
+              <input type="range" min="1" max="10" value="5" class="assess-slider" id="slider-toolnutzung">
+              <div class="slider-labels">
+                <span>Minimal</span>
+                <span class="slider-value" id="val-toolnutzung">5</span>
+                <span>Umfassend</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="assessment-item" data-key="assess_asynchron">
+            <h4>Asynchrones Lernen</h4>
+            <p>Wie verbreitet sind asynchrone Unterrichtsformen?</p>
+            <div class="slider-wrap">
+              <input type="range" min="1" max="10" value="5" class="assess-slider" id="slider-asynchron">
+              <div class="slider-labels">
+                <span>Kaum</span>
+                <span class="slider-value" id="val-asynchron">5</span>
+                <span>Etabliert</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="assessment-item" data-key="assess_handlung">
+            <h4>Handlungsorientierung</h4>
+            <p>Wie handlungsorientiert ist der ABU-Unterricht gestaltet?</p>
+            <div class="slider-wrap">
+              <input type="range" min="1" max="10" value="5" class="assess-slider" id="slider-handlung">
+              <div class="slider-labels">
+                <span>Traditionell</span>
+                <span class="slider-value" id="val-handlung">5</span>
+                <span>Handlungsorientiert</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="assessment-item" data-key="assess_lernraeume">
+            <h4>Vielf&auml;ltige Lernr&auml;ume</h4>
+            <p>Wie vielf&auml;ltig sind die genutzten Lernr&auml;ume (digital &amp; physisch)?</p>
+            <div class="slider-wrap">
+              <input type="range" min="1" max="10" value="5" class="assess-slider" id="slider-lernraeume">
+              <div class="slider-labels">
+                <span>Klassenzimmer</span>
+                <span class="slider-value" id="val-lernraeume">5</span>
+                <span>Multi-Space</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Freitext -->
+        <div class="card survey-card">
+          <h3>Was braucht Ihre Schule am dringendsten?</h3>
+          <div class="survey-question" data-key="assess_freitext">
+            <textarea class="survey-textarea" id="assess-freitext" placeholder="Beschreiben Sie kurz, was Ihre Schule f&uuml;r die Transformation am meisten ben&ouml;tigt..." rows="4"></textarea>
+          </div>
+        </div>
+
       </div>
 
       <div class="panel-nav">

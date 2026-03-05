@@ -188,6 +188,48 @@ import { saveResponse, getResponsesBySchool, getAllResponses } from './firebase-
   });
 
   // ────────────────────────────────────────────────────────
+  // SUB-TAB NAVIGATION (Tab 6)
+  // ────────────────────────────────────────────────────────
+  const subTabBtns = document.querySelectorAll('.sub-tab-btn');
+  const subTabPanels = document.querySelectorAll('.sub-tab-panel');
+
+  subTabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      subTabBtns.forEach(b => b.classList.remove('active'));
+      subTabPanels.forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      const panel = document.getElementById('subtab-' + btn.dataset.subtab);
+      if (panel) panel.classList.add('active');
+    });
+  });
+
+  // ────────────────────────────────────────────────────────
+  // CHECKLIST
+  // ────────────────────────────────────────────────────────
+  const checkItems = document.querySelectorAll('.check-item');
+  const checkFill = document.getElementById('checklist-fill');
+  const checkText = document.getElementById('checklist-progress-text');
+  const totalChecks = checkItems.length;
+
+  function updateChecklistProgress() {
+    const checked = document.querySelectorAll('.check-input:checked').length;
+    const pct = totalChecks > 0 ? (checked / totalChecks * 100) : 0;
+    if (checkFill) checkFill.style.width = pct + '%';
+    if (checkText) checkText.textContent = checked + ' von ' + totalChecks + ' erfüllt';
+  }
+
+  checkItems.forEach(item => {
+    const input = item.querySelector('.check-input');
+    const key = item.dataset.key;
+    if (input) {
+      input.addEventListener('change', () => {
+        if (key) state.surveyData[key] = input.checked;
+        updateChecklistProgress();
+      });
+    }
+  });
+
+  // ────────────────────────────────────────────────────────
   // EDTECH TOOL ASSIGNMENT
   // ────────────────────────────────────────────────────────
   const toolPool = document.getElementById('tool-pool');
